@@ -2,7 +2,7 @@ import Service from '../services/password.service';
 import VisitorService from '../../visitors/services/visitors.service';
 import Email from '../services/password.email';
 import {Request, Response} from 'express';
-
+ 
 
 class Controller {
 

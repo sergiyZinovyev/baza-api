@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
-//import {IRequest} from '../../../common/interfaces';
 import Service from '../services/service'
-
+ 
  
 export class Controller {
   

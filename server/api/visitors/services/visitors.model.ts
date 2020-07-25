@@ -55,18 +55,14 @@ export class VisitorsModel {
   update(valuesArr: Array<any>, table: string, regnum: number): Promise<any>{
     const set = this.select().replace(/,/g, '=?,') + '=?';
     const sql = `UPDATE ${table} SET ${set} WHERE regnum=${regnum}`;
-    //console.log('sql: ', sql);
     return db.sqlQueryPromise(sql, 'VisitorsModel.update', valuesArr)
-    //return Promise.resolve(db.loggerSql(sql, valuesArr)) //
   }
 
   insert(valuesArr: Array<any>, table: string): Promise<any>{
     const field = this.select();
     const values = this.values(field);
     const sql = `INSERT INTO ${table} (${field}) VALUES (${values})`;
-    //console.log('sql: ', sql);
     return db.sqlQueryPromise(sql, 'VisitorsModel.insert', valuesArr)
-    //return Promise.resolve(db.loggerSql(sql, valuesArr)) //
   }
 }
  

@@ -1,7 +1,7 @@
 import Model from './password.model';
 
 class Service {
-
+ 
   async addPassword(regnum: number, password: string, firstpassword: string): Promise<string> {
     const data = await Model.getRegnumInPasswords(regnum);
     if(data.length > 0) await Model.editRowInPasswords([password, firstpassword, regnum])

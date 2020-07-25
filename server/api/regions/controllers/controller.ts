@@ -1,11 +1,11 @@
-import Regions from '../services/regions';
+import Regions from '../services/regions.model';
 import { Request, Response } from 'express';
 import {IRequest} from '../../../common/interfaces';
 import L from '../../../common/logger';
 import { IRegionReqQuery, IRegionRes, RegionReqQuery } from './interfaces/interface';
 
 export class Controller {
-
+ 
   regions(req: IRequest, res: Response): void {
     const query = new RegionReqQuery(req.query);
     let promise: Promise<IRegionRes[]>;

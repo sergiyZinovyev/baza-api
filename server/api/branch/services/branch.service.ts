@@ -1,6 +1,4 @@
-import {} from '../controllers/interfaces/interface';
 import BranchModel from './branch.model';
-
 
 
 class VisitorsService {

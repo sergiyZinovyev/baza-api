@@ -1,6 +1,3 @@
-//import {IVisitorRes, ICheckPwd} from '../controllers/interfaces/interface';
-
-
 export const actions = {
   visitors__read: 32,
   visitors__write: 16,	
@@ -15,7 +12,7 @@ interface IUserRole {
   name: string,
   maskDec: number
 }
-
+ 
 class UserRole implements IUserRole {
   constructor(
     public readonly id: number,

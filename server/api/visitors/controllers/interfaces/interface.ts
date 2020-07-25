@@ -44,7 +44,7 @@ export interface IVisitor {
   sending?: number,
   password?: string
 }
-  
+   
 export interface IVisitorRes extends IVisitor {
   options?: {
     receivedTable: string,

@@ -1,5 +1,5 @@
 import db from '../../../common/db';
- 
+  
 class Model {
 
   getRegnumInPasswords(regnum: number): Promise<Array<number>>{

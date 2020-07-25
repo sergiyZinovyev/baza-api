@@ -29,7 +29,7 @@ export interface IExhibition {
   description_en?: string,
   site?: string
 }
-
+ 
 export class Exhibition implements IExhibition {
   numexhib = null;
   // nameexhibpolne = "";

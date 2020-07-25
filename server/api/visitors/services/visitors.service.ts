@@ -104,8 +104,9 @@ class VisitorsService {
     return executeModel[0];
   }
 
-  async getAll({ value, model = {} }: { value: string; model?: IVisitorRes; }): Promise<IVisitorRes[]> {
-    const argumentsArr = value ? [new ArgumentGetVisitorsModel(value, 'regnum', 'visitors')] : [new ArgumentGetVisitorsModel()];
+  async getAll({table, value, model = {} }: { table: string; value: string; model?: IVisitorRes; }): Promise<IVisitorRes[]> {
+    table = this.TABLES.includes(table) ? table : 'visitors';
+    const argumentsArr = value ? [new ArgumentGetVisitorsModel(value, 'regnum', table)] : [new ArgumentGetVisitorsModel(undefined, undefined, table)];
     const visitorsModel = this.isEmptyObj(model) ? new VisitorsModel() : new VisitorsModel(model);
     const executeModel = await this.executeModel(argumentsArr, visitorsModel);
     return executeModel;
@@ -156,5 +157,5 @@ class VisitorsService {
   }
 
 }
- 
+  
 export default new VisitorsService();

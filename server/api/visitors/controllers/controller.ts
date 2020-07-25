@@ -24,15 +24,13 @@ class Controller {
       })
       .catch(err => res.status(404).send(JSON.stringify(err)));
   }
-
+ 
   edit(req: IRequest, res: Response): void{
     let model: IVisitorRes;
     req.body['ins_user'] = req.access.idUser;
-    //console.log("req.access: ",req.access);
     VisitorsService.getVisitor({ email: '', cellphone: '', regnum: req.body.regnum})
       .then((r: IVisitorRes): Promise<boolean> => {
         model = r;
-        //console.log('table: ', model.options.receivedTable);
         if(!r) throw ('NO_DATA');
         return VisitorsAuth.checkWritePermissions(req.access.accessLevel, model.password, req.body.password, 'visitors', 'write')
       })
@@ -47,18 +45,9 @@ class Controller {
       .then(editData => res.send(JSON.stringify(editData)))
       .catch(err => res.status(404).send(JSON.stringify(err)));
   }
-
+ 
   create(req: IRequest, res: Response): void{
-    //let model: IVisitorRes;
     req.body['ins_user'] = req.access.idUser;
-    //console.log("req.access: ",req.access);
-    // VisitorsService.getVisitor({ email: '', cellphone: '', regnum: req.body.regnum})
-    //   .then((r: IVisitorRes): Promise<boolean> => {
-    //     model = r;
-    //     console.log('table: ', model.options.receivedTable);
-    //     if(!r) throw ('NO_DATA');
-    //     return VisitorsAuth.checkWritePermissions(req.access.accessLevel, model.password, req.body.password, 'visitors', 'write')
-    //   })
     VisitorsAuth.checkWritePermissions(req.access.accessLevel, '', req.body.password, 'visitors', 'write')  
       .then((checkWritePermissionsVisitors: boolean) => {
         if (checkWritePermissionsVisitors) return  VisitorsService.createVisitor(req.body, 'visitors');
@@ -73,7 +62,7 @@ class Controller {
   }
  
   common(req: IRequest, res: Response): void {
-    VisitorsService.getAll({ value: req.params.value, model: req.body.model })
+    VisitorsService.getAll({table: req.params.table, value: req.params.value, model: req.body.model})
       .then((r: IVisitorRes[]) => res.send(r))
       .catch(err => res.status(404).send(JSON.stringify(err)));
   }

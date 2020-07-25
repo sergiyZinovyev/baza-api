@@ -7,7 +7,7 @@ export class Regions {
   private select(){
     return new Region().keysToString();
   } 
-
+ 
   cities(params: Array<number>): Promise<IRegionRes[]> {
     let sql: string = `SELECT ${this.select()} FROM region WHERE countryid=? AND regionid=? AND cityid > 0`;
     return new Promise((resolve, reject) => {

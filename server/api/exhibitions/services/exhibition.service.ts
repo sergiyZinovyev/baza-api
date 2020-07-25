@@ -13,7 +13,7 @@ class VisitorsService {
     const model = new ExhibitionModel().getByDate([date]);
     return model
   }
-
+ 
   getById(id: any): Promise<IExhibition[]> {
     const model = new ExhibitionModel().getById([id]);
     return model

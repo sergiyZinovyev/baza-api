@@ -17,7 +17,7 @@ class Controller {
       .then((r: IExhibition[]) => res.send(r))
       .catch(err => res.status(404).send(JSON.stringify(err)));
   }
- 
+  
 }
  
 export default new Controller();

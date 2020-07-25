@@ -1,7 +1,4 @@
-import {} from '../controllers/interfaces/interface';
 import Model from './model';
-
- 
 
 class Service {
 
@@ -14,5 +11,5 @@ class Service {
   } 
  
 }
-  
+   
 export default new Service();
