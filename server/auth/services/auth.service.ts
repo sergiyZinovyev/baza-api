@@ -29,7 +29,7 @@ class AuthService {
 
     return new Promise((resolve, reject) => {
       this.getUser(login)
-        .then((data: any[])=>{
+        .then((data: any[])=>{ 
       
           if (!data[0]) access.msg = 'NO_USER'
           else if(data[0].passw == password) {

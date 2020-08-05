@@ -7,6 +7,7 @@ import exhibdict from './api/exhibdict';
 import exhibitions from './api/exhibitions';
 import password from './api/password';
 import exhibvis from './api/exhibvis';
+import useraccount from './api/usersaccount';
           
 export default function routes(app: Application): void {
   app.use('/y/examples', examplesRouter);
@@ -17,4 +18,5 @@ export default function routes(app: Application): void {
   app.use('/exhibitions', exhibitions);
   app.use('/password', password);
   app.use('/exhibvis', exhibvis);
-};  
+  app.use('/useraccount', useraccount);
+};   

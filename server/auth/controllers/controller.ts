@@ -19,7 +19,7 @@ class Controller {
       .catch(err => res.status(404).send(JSON.stringify(err)));
      
   }
-     
+      
   checkAccess(accessLevels: Array<number> = [0,1,2,3,4,5,6,7]){ 
     return (req: IRequest, res: Response, next: NextFunction): void => {
       const access: IRequest['access'] = req.access;
